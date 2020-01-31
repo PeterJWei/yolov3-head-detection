@@ -12,7 +12,7 @@
 #================================================================
 
 import argparse
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from core.yolov3 import YOLOV3
 from core.config import cfg
 parser = argparse.ArgumentParser()
@@ -24,9 +24,10 @@ cur_weights_path = cfg.YOLO.DEMO_WEIGHT
 preserve_cur_names = ['conv_sbbox', 'conv_mbbox', 'conv_lbbox']
 preserve_org_names = ['Conv_6', 'Conv_14', 'Conv_22']
 
-
+tf.disable_eager_execution()
 org_weights_mess = []
 tf.Graph().as_default()
+print(org_weights_path)
 load = tf.train.import_meta_graph(org_weights_path + '.meta')
 with tf.Session() as sess:
     load.restore(sess, org_weights_path)

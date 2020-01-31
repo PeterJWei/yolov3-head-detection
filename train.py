@@ -15,14 +15,14 @@ import os
 import time
 import shutil
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import core.utils as utils
 from tqdm import tqdm
 from core.dataset import Dataset
 from core.yolov3 import YOLOV3
 from core.config import cfg
 
-
+tf.disable_eager_execution()
 class YoloTrain(object):
     def __init__(self):
         self.anchor_per_scale    = cfg.YOLO.ANCHOR_PER_SCALE

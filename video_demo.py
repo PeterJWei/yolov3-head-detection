@@ -15,8 +15,9 @@ import cv2
 import time
 import numpy as np
 import core.utils as utils
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from PIL import Image
+tf.disable_eager_execution()
 
 
 return_elements = ["input/input_data:0", "pred_sbbox/concat_2:0", "pred_mbbox/concat_2:0", "pred_lbbox/concat_2:0"]

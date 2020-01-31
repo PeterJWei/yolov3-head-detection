@@ -12,8 +12,9 @@
 #================================================================
 
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from core.yolov3 import YOLOV3
+tf.disable_eager_execution()
 
 pb_file = "./yolov3_coco.pb"
 ckpt_file = "./checkpoint/yolov3_coco_demo.ckpt"

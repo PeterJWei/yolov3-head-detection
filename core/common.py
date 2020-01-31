@@ -11,7 +11,7 @@
 #
 #================================================================
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def convolutional(input_data, filters_shape, trainable, name, downsample=False, activate=True, bn=True):
